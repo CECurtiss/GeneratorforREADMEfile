@@ -47,6 +47,53 @@ inquirer
             name: 'questions'
         },
     ])
+    .then((data) => {
+       const answers = 
+       `# ${data.readmetitle}
+
+       ## Description
+       ${data.description}
+       
+       ## Table of Contents
+       
+       -Installation
+       -Usage
+       -License
+       -Contributing
+       -Tests
+       -Questions
+       
+       ## Installation
+       ${data.installation}
+       
+       ## Usage
+       ${data.usage}
+       
+       ## License
+       ${data.license}
+       
+       ## Contributing
+       ${data.contributing}
+       
+       ## Tests
+       ${data.tests}
+       
+       ## Questions
+       ${data.questions}`;
+       
+        fs.appendFile('README.txt', answers, (err) =>
+        err ? console.error(err) : console.log("README file created!")
+        );
+    });
+
+    // .then((data) => {
+    //     const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
+    
+    //     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
+    //       err ? console.log(err) : console.log('Success!')
+    //     );
+    //   });
+    
 const questions = [
     ];
 
