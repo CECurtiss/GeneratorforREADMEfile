@@ -46,63 +46,64 @@ inquirer
             message: 'Please enter your contact information if you would like to be available for questions from other developers about your project:',
             name: 'questions'
         },
+        {
+            type: 'input',
+            message: 'What is your Github username?',
+            name: 'githubname',
+        },
     ])
     .then((data) => {
        const answers = 
-       `# ${data.readmetitle}
+`# ${data.readmetitle}
 
-       ## Description
-       ${data.description}
+## Description
+${data.description}
        
-       ## Table of Contents
+## Table of Contents
        
-       -Installation
-       -Usage
-       -License
-       -Contributing
-       -Tests
-       -Questions
+*[Installation](#installation)
+
+*[Usage](#usage)
+
+*[License](#license)
+
+*[Contributing](#contributing)
+
+*[Tests])(#tests)
+
+*[Questions](#questions)
        
-       ## Installation
-       ${data.installation}
+## Installation
+${data.installation}
        
-       ## Usage
-       ${data.usage}
+## Usage
+${data.usage}
        
-       ## License
-       ${data.license}
+## License
+${data.license}
        
-       ## Contributing
-       ${data.contributing}
+## Contributing
+${data.contributing}
        
-       ## Tests
-       ${data.tests}
+## Tests
+${data.tests}
        
-       ## Questions
-       ${data.questions}`;
+## Questions
+${data.questions}
+[My Github profile](http://github.com/${data.githubname})`;
        
-        fs.appendFile('README.txt', answers, (err) =>
+        fs.appendFile('README.md', answers, (err) =>
         err ? console.error(err) : console.log("README file created!")
         );
     });
 
-    // .then((data) => {
-    //     const filename = `${data.name.toLowerCase().split(' ').join('')}.json`;
-    
-    //     fs.writeFile(filename, JSON.stringify(data, null, '\t'), (err) =>
-    //       err ? console.log(err) : console.log('Success!')
-    //     );
-    //   });
-    
-const questions = [
-    ];
 
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// // TODO: Create a function to initialize app
+// function init() {}
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
