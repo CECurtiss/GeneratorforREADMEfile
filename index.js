@@ -56,12 +56,17 @@ inquirer
         {
             type: 'input',
             message: 'Please enter your contact information if you would like to be available for questions from other developers about your project:',
-            name: 'questions'
+            name: 'questions',
         },
         {
             type: 'input',
             message: 'What is your Github username?',
             name: 'githubname',
+        },
+        {
+            type: 'input',
+            message: 'What is your email address?',
+            name: 'email',
         },
     ])
     .then((data) => {
@@ -101,8 +106,12 @@ ${data.contributing}
 ${data.tests}
        
 ## Questions
-${data.questions}
-[My Github profile](http://github.com/${data.githubname})`;
+
+[My Github profile](http://github.com/${data.githubname}). 
+
+Please feel free to [email me](mailto:${data.email}) if you have any futher questions.
+${data.questions}.`
+;
        
         fs.appendFile('README.md', answers, (err) =>
         err ? console.error(err) : console.log("README file created!")
