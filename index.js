@@ -1,8 +1,20 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-
-// TODO: Create an array of questions for user input
-// Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+function renderLicenseLink(license) {
+   switch(license) {
+    case 'Apache':
+      "https://www.apache.org/licenses/LICENSE-2.0.txt";
+      break;
+    case 'MIT':
+    "https://www.mit.edu/~amini/LICENSE.md";
+    break;
+    case 'GPL':
+    "https://www.gnu.org/licenses/gpl-3.0.txt";
+    break;
+    case 'BSD':
+    "https://www.freebsd.org/copyright/freebsd-license/";
+    break;
+   }};
 inquirer
     .prompt([
         {
@@ -69,7 +81,7 @@ ${data.description}
 
 *[Contributing](#contributing)
 
-*[Tests])(#tests)
+*[Tests](#tests)
 
 *[Questions](#questions)
        
@@ -80,7 +92,7 @@ ${data.installation}
 ${data.usage}
        
 ## License
-${data.license}
+${renderLicenseLink(data.license)}
        
 ## Contributing
 ${data.contributing}
@@ -96,14 +108,3 @@ ${data.questions}
         err ? console.error(err) : console.log("README file created!")
         );
     });
-
-
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
